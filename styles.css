@@ -219,3 +219,12 @@ h3{font-size:1.45rem;font-weight:700;line-height:1.1}
   .foot-grid{grid-template-columns:1fr}
   .map{min-height:300px}
 }
+
+/* bank details */
+.bank-title{font-size:clamp(1.7rem,3vw,2.2rem);margin:8px 0 18px}
+.bank{margin:0 0 28px;border-top:3px solid var(--night)}
+.bank div{display:grid;grid-template-columns:200px 1fr;gap:24px;padding:14px 0;border-bottom:1px solid var(--rule)}
+.bank dt{font-weight:600;color:var(--soft)}
+.bank dd{margin:0;font:700 1.3rem/1.3 var(--display);font-stretch:85%;color:var(--night)}
+.bank dd.acct{font-variant-numeric:tabular-nums;letter-spacing:.04em;user-select:all}
+@media (max-width:640px){.bank div{grid-template-columns:1fr;gap:2px}}
