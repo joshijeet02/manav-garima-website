@@ -54,8 +54,8 @@ h3{font-size:1.45rem;font-weight:700;line-height:1.1}
 
 /* home hero: the photo carries it, the name sits on a blue slab cut into the photo */
 .hero{position:relative;background:var(--night)}
-.hero-photo img{width:100%;height:min(74vh,720px);object-fit:cover;object-position:50% 35%}
-.hero-type{position:relative;max-width:var(--max);margin:-9.5rem auto 0;padding:0 24px}
+.hero-photo img{width:100%;height:auto}
+.hero-type{position:relative;max-width:var(--max);margin:0 auto;padding:0 24px}
 .hero-type h1{display:inline-block;background:var(--garima);color:#fff;font-size:clamp(3rem,9vw,7.6rem);line-height:.9;padding:.18em .22em .14em;margin:0;max-width:11ch}
 .motto{display:flex;flex-wrap:wrap;gap:0;margin:0;font:700 1.25rem/1 var(--display);font-stretch:85%;color:#fff}
 .motto span{padding:14px 18px 16px;background:var(--night)}
@@ -89,7 +89,7 @@ h3{font-size:1.45rem;font-weight:700;line-height:1.1}
 .wash{background:var(--wash)}
 .wash .two{padding-top:80px;padding-bottom:80px}
 .two{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
-.framed img{width:100%;aspect-ratio:3/2;object-fit:cover}
+.framed img{width:100%;height:auto}
 .text-link{font-weight:700}
 .vm{display:grid;grid-template-columns:1fr 1fr;gap:64px}
 .vm .h-big{font-size:clamp(2rem,3.4vw,2.6rem)}
@@ -99,7 +99,8 @@ h3{font-size:1.45rem;font-weight:700;line-height:1.1}
 .banner-text{display:flex;flex-direction:column;justify-content:flex-end;padding:56px 24px 48px max(24px,calc((100vw - var(--max))/2 + 24px))}
 .banner h1{color:#fff;font-size:clamp(2.6rem,5.6vw,4.8rem);line-height:.92;margin:0}
 .banner-sub{margin:16px 0 0;font:700 1.15rem/1 var(--display);font-stretch:85%;color:var(--hivis)}
-.banner-photo img{width:100%;height:100%;object-fit:cover}
+.banner-photo{display:flex;align-items:center;background:var(--night)}
+.banner-photo img{width:100%;height:auto}
 .banner.plain{grid-template-columns:1fr;min-height:0}
 .banner.plain .banner-text{padding-top:88px;padding-bottom:56px}
 
@@ -116,10 +117,9 @@ h3{font-size:1.45rem;font-weight:700;line-height:1.1}
 .jump a{white-space:nowrap;text-decoration:none;color:var(--ink);font-weight:600;font-size:.95rem;padding:6px 12px;border:1px solid var(--rule)}
 .jump a:hover{border-color:var(--garima);color:var(--garima)}
 .prog{padding:72px 0 8px;scroll-margin-top:140px}
-.strip{display:grid;gap:6px;max-width:var(--max);margin:0 auto;padding:0 24px}
-.strip.n3{grid-template-columns:2fr 1fr 1fr}
-.strip.n2{grid-template-columns:2fr 1fr}
-.strip img{width:100%;height:340px;object-fit:cover}
+/* each photo grows by its own aspect ratio (--r), so a row shares one height and nothing is cropped */
+.strip{display:flex;flex-wrap:wrap;gap:6px;max-width:var(--max);margin:0 auto;padding:0 24px}
+.strip img{flex:var(--r) 1 0;width:0;min-width:0;height:auto}
 .prog-grid{display:grid;grid-template-columns:300px minmax(0,1fr);gap:56px;max-width:var(--max);margin:0 auto;padding:40px 24px 0}
 .prog-grid h2{font-size:clamp(2.2rem,3.6vw,3rem);position:sticky;top:150px;align-self:start}
 .prog-body{max-width:72ch}
@@ -191,7 +191,6 @@ h3{font-size:1.45rem;font-weight:700;line-height:1.1}
   .prog-grid h2{position:static}
   .banner{grid-template-columns:1fr}
   .banner-photo{order:-1}
-  .banner-photo img{height:260px}
   .banner-text{padding:36px 24px 40px}
   .foot-grid{grid-template-columns:1fr 1fr}
 }
@@ -199,15 +198,11 @@ h3{font-size:1.45rem;font-weight:700;line-height:1.1}
   body{font-size:1.06rem}
   .block{padding-top:56px;padding-bottom:56px}
   .big{font-size:1.18rem}
-  .hero-photo img{height:52vh}
-  .hero-type{margin-top:-4.2rem;padding:0}
+  .hero-type{padding:0}
   .hero-type h1{display:block;max-width:none;font-size:clamp(2.7rem,13vw,4rem)}
   .motto span{flex:1;text-align:center;padding:12px 6px}
   .intro{padding-top:44px}
-  .strip.n3,.strip.n2{grid-template-columns:1fr 1fr}
-  .strip.n3 img:first-child,.strip.n2 img:first-child{grid-column:1/-1}
-  .strip img{height:200px}
-  .strip.n3 img:first-child,.strip.n2 img:first-child,.strip.n1 img{height:260px}
+  .strip.n3 img:first-child{flex-basis:100%}
   .timeline li{grid-template-columns:1fr;gap:10px}
   .person{grid-template-columns:96px 1fr;gap:16px}
   .face img,.initials{width:96px;height:96px}
